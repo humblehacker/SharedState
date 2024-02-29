@@ -11,9 +11,7 @@ import SwiftUI
 struct SharedStateApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(store: .init(initialState: .init()) {
-                ContentReducer()
-            })
+            ParentView(store: .init(initialState: .init()) { Parent() })
         }
     }
 }
