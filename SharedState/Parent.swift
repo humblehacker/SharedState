@@ -6,25 +6,30 @@ struct Parent {
     @ObservableState
     struct State: Equatable {
         @Shared var value: Int
-        var child: Child.State
+        var children: IdentifiedArrayOf<Child.State>
 
         init(value: Int = 0) {
+            @Dependency(\.uuid) var uuid
             self._value = Shared(value)
-            self.child = .init(text: "", value: _value)
+            self.children = [
+                .init(id: uuid(), text: "0", value: _value),
+                .init(id: uuid(), text: "0", value: _value),
+                .init(id: uuid(), text: "0", value: _value),
+                .init(id: uuid(), text: "0", value: _value)
+            ]
         }
     }
 
     enum Action: Equatable {
-        case child(Child.Action)
+        case children(IdentifiedActionOf<Child>)
         case incrementValue
     }
 
-    var body: some ReducerOf<Self> {
-        Scope(state: \.child, action: \.child) { Child() }
 
+    var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .child:
+            case .children:
                 return .none
 
             case .incrementValue:
@@ -32,6 +37,7 @@ struct Parent {
                 return .none
             }
         }
+        .forEach(\.children, action: \.children) { Child() }
     }
 }
 
@@ -41,7 +47,11 @@ struct ParentView: View {
 
     var body: some View {
         VStack {
-            ChildView(store: store.scope(state: \.child, action: \.child))
+            HStack {
+                ForEach(store.scope(state: \.children, action: \.children)) { store in
+                    ChildView(store: store)
+                }
+            }
             Button("Increment") { store.send(.incrementValue) }
         }
         .padding()

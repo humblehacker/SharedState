@@ -4,7 +4,8 @@ import SwiftUI
 @Reducer
 struct Child {
     @ObservableState
-    struct State: Equatable {
+    struct State: Equatable, Identifiable {
+        let id: UUID
         var text: String
         @Shared var value: Int
     }
