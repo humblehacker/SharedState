@@ -12,6 +12,10 @@ struct SharedStateApp: App {
                         ParentView(store: .init(initialState: .init()) { Parent() })
                             .navigationTitle("Distributed Updates")
                     }
+                    NavigationLink("Chained Actions") {
+                        ChainedActionsView(store: .init(initialState: .init()) { ChainedActions() })
+                            .navigationTitle("ChainedActions")
+                    }
                 }
                 .listStyle(.sidebar)
                 .frame(width: 200)

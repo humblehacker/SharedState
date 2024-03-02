@@ -38,7 +38,7 @@ public struct Child {
 enum CancelID { case valuePublisher }
 
 public struct ChildView: View {
-    let store: StoreOf<Child>
+    @State var store: StoreOf<Child>
 
     public var body: some View {
         Text(store.text)

@@ -9,6 +9,7 @@ let package = Package(
     ],
     products: [
         .library(name: "DistributedUpdates", targets: ["DistributedUpdates"]),
+        .library(name: "ChainedActions", targets: ["ChainedActions"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", branch: "shared-state-beta"),
@@ -20,6 +21,13 @@ let package = Package(
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
+        .target(
+            name: "ChainedActions",
+            dependencies: [
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
         .testTarget(name: "DistributedUpdatesTests", dependencies: ["DistributedUpdates"]),
+        .testTarget(name: "ChainedActionsTests", dependencies: ["ChainedActions"]),
     ]
 )

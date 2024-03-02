@@ -22,6 +22,13 @@
         "identifier" : "DistributedUpdatesTests",
         "name" : "DistributedUpdatesTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Examples",
+        "identifier" : "ChainedActionsTests",
+        "name" : "ChainedActionsTests"
+      }
     }
   ],
   "version" : 1

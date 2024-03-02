@@ -11,6 +11,7 @@
 		63646E3F2B90059300AA1C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63646E3E2B90059300AA1C0F /* Assets.xcassets */; };
 		63646E422B90059300AA1C0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63646E412B90059300AA1C0F /* Preview Assets.xcassets */; };
 		6393008D2B92B292009C4C4B /* Examples in Resources */ = {isa = PBXBuildFile; fileRef = 6393008C2B92B291009C4C4B /* Examples */; };
+		639300902B92B336009C4C4B /* ChainedActions in Frameworks */ = {isa = PBXBuildFile; productRef = 6393008F2B92B336009C4C4B /* ChainedActions */; };
 		639300922B92B336009C4C4B /* DistributedUpdates in Frameworks */ = {isa = PBXBuildFile; productRef = 639300912B92B336009C4C4B /* DistributedUpdates */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				639300922B92B336009C4C4B /* DistributedUpdates in Frameworks */,
+				639300902B92B336009C4C4B /* ChainedActions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +100,7 @@
 			);
 			name = SharedState;
 			packageProductDependencies = (
+				6393008F2B92B336009C4C4B /* ChainedActions */,
 				639300912B92B336009C4C4B /* DistributedUpdates */,
 			);
 			productName = SharedState;
@@ -360,7 +363,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6393008F2B92B336009C4C4B /* ChainedActions */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = ChainedActions;
 		};
 		639300912B92B336009C4C4B /* DistributedUpdates */ = {
 			isa = XCSwiftPackageProductDependency;
