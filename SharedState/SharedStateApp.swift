@@ -1,3 +1,4 @@
+import ChainedActions
 import DistributedUpdates
 import SwiftUI
 
@@ -5,7 +6,16 @@ import SwiftUI
 struct SharedStateApp: App {
     var body: some Scene {
         WindowGroup {
-            ParentView(store: .init(initialState: .init()) { Parent() })
+            NavigationView {
+                List {
+                    NavigationLink("Distributed Updates") {
+                        ParentView(store: .init(initialState: .init()) { Parent() })
+                            .navigationTitle("Distributed Updates")
+                    }
+                }
+                .listStyle(.sidebar)
+                .frame(width: 200)
+            }
         }
     }
 }
