@@ -1,10 +1,4 @@
-//
-//  SharedStateApp.swift
-//  SharedState
-//
-//  Created by David Whetstone on 2/28/24.
-//
-
+import DistributedUpdates
 import SwiftUI
 
 @main

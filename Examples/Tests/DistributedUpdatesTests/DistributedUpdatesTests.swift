@@ -1,8 +1,8 @@
 import ComposableArchitecture
-@testable import SharedState
+@testable import DistributedUpdates
 import XCTest
 
-final class SharedStateTests: XCTestCase {
+final class DistributedUpdatesTests: XCTestCase {
 
     @MainActor
     func testPublisher() async {

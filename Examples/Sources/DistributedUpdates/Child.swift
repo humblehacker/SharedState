@@ -2,21 +2,21 @@ import ComposableArchitecture
 import SwiftUI
 
 @Reducer
-struct Child {
+public struct Child {
     @ObservableState
-    struct State: Equatable, Identifiable {
-        let id: UUID
+    public struct State: Equatable, Identifiable {
+        public let id: UUID
         var text: String
         @Shared var value: Int
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case onAppear
         case onDisappear
         case valueUpdated(_ newValue: Int)
     }
 
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .valueUpdated(let newValue):
@@ -37,10 +37,10 @@ struct Child {
 
 enum CancelID { case valuePublisher }
 
-struct ChildView: View {
+public struct ChildView: View {
     let store: StoreOf<Child>
 
-    var body: some View {
+    public var body: some View {
         Text(store.text)
             .onAppear { store.send(.onAppear) }
             .onDisappear { store.send(.onDisappear) }

@@ -2,13 +2,13 @@ import ComposableArchitecture
 import SwiftUI
 
 @Reducer
-struct Parent {
+public struct Parent {
     @ObservableState
-    struct State: Equatable {
+    public struct State: Equatable {
         @Shared var value: Int
         var children: IdentifiedArrayOf<Child.State>
 
-        init(value: Int = 0) {
+        public init(value: Int = 0) {
             @Dependency(\.uuid) var uuid
             self._value = Shared(value)
             self.children = [
@@ -20,13 +20,14 @@ struct Parent {
         }
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case children(IdentifiedActionOf<Child>)
         case incrementValue
     }
 
+    public init() {}
 
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .children:
@@ -41,11 +42,16 @@ struct Parent {
     }
 }
 
-struct ParentView: View {
+public struct ParentView: View {
     @State var uuid = UUID()
     let store: StoreOf<Parent>
 
-    var body: some View {
+    public init(uuid: UUID = UUID(), store: StoreOf<Parent>) {
+        self.uuid = uuid
+        self.store = store
+    }
+
+    public var body: some View {
         VStack {
             HStack {
                 ForEach(store.scope(state: \.children, action: \.children)) { store in

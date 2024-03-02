@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "5B7E91A4-886A-4332-B61D-B055E7AAC6F8",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SharedState.xcodeproj",
+      "identifier" : "63646E362B90059200AA1C0F",
+      "name" : "SharedState"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Examples",
+        "identifier" : "DistributedUpdatesTests",
+        "name" : "DistributedUpdatesTests"
+      }
+    }
+  ],
+  "version" : 1
+}
